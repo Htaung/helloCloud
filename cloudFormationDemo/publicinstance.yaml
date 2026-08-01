@@ -1,0 +1,10 @@
+AWSTemplateFormatVersion: "2026-08-02"
+
+Resources:
+  publicIntance: 
+    Type: AWS::EC2::Instance
+    Properties:
+     Type: 't2.micro'
+     AvailabilityZone: 'ap-southeast-1a'
+     ImageId: 'ami-0066fb27316e51192'
+     KeyName: 'gridworks-nonprod-sg'
