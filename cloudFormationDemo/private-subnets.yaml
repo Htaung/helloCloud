@@ -28,6 +28,17 @@ Resources:
         - Key: 'Environment'
           Value: 'Non Production'
       VpcId: 'vpc-0d90130a42bf7e826'
+  routeTablePrivateSubnet1:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      Tags: 
+        - Key: 'Name'
+          Value: 'Route table for private subnet 1'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: 'vpc-0d90130a42bf7e826'
   privateSubnet2: 
     Type: AWS::EC2::Subnet
     Properties:
@@ -54,6 +65,17 @@ Resources:
         - Key: 'Environment'
           Value: 'Non Production'
       VpcId: 'vpc-0d90130a42bf7e826'
+  routeTablePrivateSubnet2:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      Tags: 
+        - Key: 'Name'
+          Value: 'Route table for private subnet 2'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: 'vpc-0d90130a42bf7e826'
   privateSubnet3: 
     Type: AWS::EC2::Subnet
     Properties:
@@ -75,6 +97,17 @@ Resources:
       Tags: 
         - Key: 'Name'
           Value: 'defaultPrivateSubnet3'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: 'vpc-0d90130a42bf7e826'
+  routeTablePrivateSubnet3:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      Tags: 
+        - Key: 'Name'
+          Value: 'Route table for private subnet 3'
         - Key: 'Region'
           Value: 'Singapore'
         - Key: 'Environment'
