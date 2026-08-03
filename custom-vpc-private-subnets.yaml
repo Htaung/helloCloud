@@ -1,0 +1,190 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: 'Private Subnets in ap-southeast-1 default VPC'
+
+Resources:
+  customSGVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: '172.31.0.0/16'
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      InstanceTenancy: 'default'
+      # Ipv4IpamPoolId: String
+      # Ipv4NetmaskLength: Integer
+      Tags: 
+        - Key: 'Name'
+          Value: 'custom SG VPC'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      #VpcEncryptionControl: 
+        #VpcEncryptionControl
+  privateSubnet1: 
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: 'ap-southeast-1a'
+      #AvailabilityZoneId: String
+      CidrBlock: '172.31.48.0/20'
+      #EnableDns64: Boolean
+      # EnableLniAtDeviceIndex: Integer
+      # Ipv4IpamPoolId: String
+      # Ipv4NetmaskLength: Integer
+      #Ipv6CidrBlock: String
+      #Ipv6IpamPoolId: String
+      #Ipv6Native: Boolean
+      #Ipv6NetmaskLength: Integer
+      MapPublicIpOnLaunch: false
+      # OutpostArn: String
+      # PrivateDnsNameOptionsOnLaunch: 
+      #   PrivateDnsNameOptionsOnLaunch
+      Tags: 
+        - Key: 'Name'
+          Value: 'defaultPrivateSubnet1'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: !Ref customSGVPC
+  routeTablePrivateSubnet1:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      Tags: 
+        - Key: 'Name'
+          Value: 'Route table for private subnet 1'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: !Ref customSGVPC
+  privateSubnet1RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref routeTablePrivateSubnet1
+      SubnetId: !Ref privateSubnet1
+  privateSubnet2: 
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: 'ap-southeast-1b'
+      #AvailabilityZoneId: String
+      CidrBlock: '172.31.64.0/20'
+      #EnableDns64: Boolean
+      # EnableLniAtDeviceIndex: Integer
+      # Ipv4IpamPoolId: String
+      # Ipv4NetmaskLength: Integer
+      #Ipv6CidrBlock: String
+      #Ipv6IpamPoolId: String
+      #Ipv6Native: Boolean
+      #Ipv6NetmaskLength: Integer
+      MapPublicIpOnLaunch: false
+      # OutpostArn: String
+      # PrivateDnsNameOptionsOnLaunch: 
+      #   PrivateDnsNameOptionsOnLaunch
+      Tags: 
+        - Key: 'Name'
+          Value: 'defaultPrivateSubnet2'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: !Ref customSGVPC
+  routeTablePrivateSubnet2:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      Tags: 
+        - Key: 'Name'
+          Value: 'Route table for private subnet 2'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: !Ref customSGVPC
+  privateSubnet2RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref routeTablePrivateSubnet2
+      SubnetId: !Ref privateSubnet2
+  privateSubnet3: 
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: 'ap-southeast-1c'
+      #AvailabilityZoneId: String
+      CidrBlock: '172.31.80.0/20'
+      #EnableDns64: Boolean
+      # EnableLniAtDeviceIndex: Integer
+      # Ipv4IpamPoolId: String
+      # Ipv4NetmaskLength: Integer
+      #Ipv6CidrBlock: String
+      #Ipv6IpamPoolId: String
+      #Ipv6Native: Boolean
+      #Ipv6NetmaskLength: Integer
+      MapPublicIpOnLaunch: false
+      # OutpostArn: String
+      # PrivateDnsNameOptionsOnLaunch: 
+      #   PrivateDnsNameOptionsOnLaunch
+      Tags: 
+        - Key: 'Name'
+          Value: 'defaultPrivateSubnet3'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: !Ref customSGVPC
+  routeTablePrivateSubnet3:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      Tags: 
+        - Key: 'Name'
+          Value: 'Route table for private subnet 3'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: !Ref customSGVPC
+  privateSubnet3RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref routeTablePrivateSubnet3
+      SubnetId: !Ref privateSubnet3
+  privateSubnet4: 
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: 'ap-southeast-1a'
+      #AvailabilityZoneId: String
+      CidrBlock: '172.31.96.0/20'
+      #EnableDns64: Boolean
+      # EnableLniAtDeviceIndex: Integer
+      # Ipv4IpamPoolId: String
+      # Ipv4NetmaskLength: Integer
+      #Ipv6CidrBlock: String
+      #Ipv6IpamPoolId: String
+      #Ipv6Native: Boolean
+      #Ipv6NetmaskLength: Integer
+      MapPublicIpOnLaunch: false
+      # OutpostArn: String
+      # PrivateDnsNameOptionsOnLaunch: 
+      #   PrivateDnsNameOptionsOnLaunch
+      Tags: 
+        - Key: 'Name'
+          Value: 'defaultPrivateSubnet4'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: !Ref customSGVPC
+  routeTablePrivateSubnet4:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      Tags: 
+        - Key: 'Name'
+          Value: 'Route table for private subnet 4'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: !Ref customSGVPC
+  privateSubnet4RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref routeTablePrivateSubnet4
+      SubnetId: !Ref privateSubnet4
