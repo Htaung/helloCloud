@@ -1,0 +1,82 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: 'Private Subnets in ap-southeast-1 default VPC'
+
+Resources:
+  privateSubnet1: 
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: 'ap-southeast-1a'
+      #AvailabilityZoneId: String
+      CidrBlock: '172.31.48.0/20'
+      #EnableDns64: Boolean
+      # EnableLniAtDeviceIndex: Integer
+      # Ipv4IpamPoolId: String
+      # Ipv4NetmaskLength: Integer
+      #Ipv6CidrBlock: String
+      #Ipv6IpamPoolId: String
+      #Ipv6Native: Boolean
+      #Ipv6NetmaskLength: Integer
+      MapPublicIpOnLaunch: false
+      # OutpostArn: String
+      # PrivateDnsNameOptionsOnLaunch: 
+      #   PrivateDnsNameOptionsOnLaunch
+      Tags: 
+        - Key: 'Name'
+          Value: 'defaultPrivateSubnet1'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: 'vpc-0d90130a42bf7e826'
+  privateSubnet2: 
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: 'ap-southeast-1b'
+      #AvailabilityZoneId: String
+      CidrBlock: '172.31.64.0/20'
+      #EnableDns64: Boolean
+      # EnableLniAtDeviceIndex: Integer
+      # Ipv4IpamPoolId: String
+      # Ipv4NetmaskLength: Integer
+      #Ipv6CidrBlock: String
+      #Ipv6IpamPoolId: String
+      #Ipv6Native: Boolean
+      #Ipv6NetmaskLength: Integer
+      MapPublicIpOnLaunch: false
+      # OutpostArn: String
+      # PrivateDnsNameOptionsOnLaunch: 
+      #   PrivateDnsNameOptionsOnLaunch
+      Tags: 
+        - Key: 'Name'
+          Value: 'defaultPrivateSubnet2'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: 'vpc-0d90130a42bf7e826'
+  privateSubnet3: 
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: 'ap-southeast-1c'
+      #AvailabilityZoneId: String
+      CidrBlock: '172.31.80.0/20'
+      #EnableDns64: Boolean
+      # EnableLniAtDeviceIndex: Integer
+      # Ipv4IpamPoolId: String
+      # Ipv4NetmaskLength: Integer
+      #Ipv6CidrBlock: String
+      #Ipv6IpamPoolId: String
+      #Ipv6Native: Boolean
+      #Ipv6NetmaskLength: Integer
+      MapPublicIpOnLaunch: false
+      # OutpostArn: String
+      # PrivateDnsNameOptionsOnLaunch: 
+      #   PrivateDnsNameOptionsOnLaunch
+      Tags: 
+        - Key: 'Name'
+          Value: 'defaultPrivateSubnet3'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: 'vpc-0d90130a42bf7e826'
