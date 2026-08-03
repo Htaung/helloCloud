@@ -4,7 +4,7 @@ Resources:
   publicIntance: 
     Type: AWS::EC2::Instance
     Properties:
-     Type: 't2.micro'
-     AvailabilityZone: 'ap-southeast-1a'
-     ImageId: 'ami-0066fb27316e51192'
-     KeyName: 'gridworks-nonprod-sg'
+      InstanceType: 't2.micro'
+      AvailabilityZone: 'ap-southeast-1a'
+      ImageId: 'ami-097284c1ee60065d1'
+      KeyName: 'gridworks-nonprod-sg'
