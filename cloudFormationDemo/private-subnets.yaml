@@ -42,8 +42,8 @@ Resources:
   privateSubnet1RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
-      RouteTableId: 'rtb-0c97be74a84c00b57'
-      SubnetId: 'subnet-050632c6a3ac0c937'
+      RouteTableId: !Ref routeTablePrivateSubnet1
+      SubnetId: !Ref privateSubnet1
   privateSubnet2: 
     Type: AWS::EC2::Subnet
     Properties:
@@ -84,8 +84,8 @@ Resources:
   privateSubnet2RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
-      RouteTableId: 'rtb-0f320951820506f24'
-      SubnetId: 'subnet-083d0894a2605c68d'
+      RouteTableId: !Ref routeTablePrivateSubnet2
+      SubnetId: !Ref privateSubnet2
   privateSubnet3: 
     Type: AWS::EC2::Subnet
     Properties:
@@ -126,5 +126,5 @@ Resources:
   privateSubnet3RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
-      RouteTableId: 'rtb-0461590d3f8f63631'
-      SubnetId: 'subnet-0ffc24e31ac2fa930'
+      RouteTableId: !Ref routeTablePrivateSubnet3
+      SubnetId: !Ref privateSubnet3
