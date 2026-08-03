@@ -41,10 +41,9 @@ Resources:
       VpcId: 'vpc-0d90130a42bf7e826'
   privateSubnet1RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
-      Properties:
-        RouteTableId: 'rtb-0c97be74a84c00b57'
-        SubnetId: 'subnet-050632c6a3ac0c937'
-
+    Properties:
+      RouteTableId: 'rtb-0c97be74a84c00b57'
+      SubnetId: 'subnet-050632c6a3ac0c937'
   privateSubnet2: 
     Type: AWS::EC2::Subnet
     Properties:
@@ -84,9 +83,9 @@ Resources:
       VpcId: 'vpc-0d90130a42bf7e826'
   privateSubnet2RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
-      Properties:
-        RouteTableId: 'rtb-0f320951820506f24'
-        SubnetId: 'subnet-083d0894a2605c68d'
+    Properties:
+      RouteTableId: 'rtb-0f320951820506f24'
+      SubnetId: 'subnet-083d0894a2605c68d'
   privateSubnet3: 
     Type: AWS::EC2::Subnet
     Properties:
@@ -126,6 +125,6 @@ Resources:
       VpcId: 'vpc-0d90130a42bf7e826'
   privateSubnet3RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
-      Properties:
-        RouteTableId: 'rtb-0461590d3f8f63631'
-        SubnetId: 'subnet-0ffc24e31ac2fa930'
+    Properties:
+      RouteTableId: 'rtb-0461590d3f8f63631'
+      SubnetId: 'subnet-0ffc24e31ac2fa930'
