@@ -1,0 +1,198 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: 'Public Subnets in ap-southeast-1 custom VPC'
+
+Resources:
+  customSGVPC:
+    Type: AWS::EC2::VPC
+    Properties:
+      CidrBlock: '172.31.0.0/16'
+      EnableDnsHostnames: true
+      EnableDnsSupport: true
+      InstanceTenancy: 'default'
+      Tags: 
+        - Key: 'Name'
+          Value: 'custom SG VPC'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+  publicSubnet1: 
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: 'ap-southeast-1a'
+      CidrBlock: '172.31.48.0/20'
+      MapPublicIpOnLaunch: false
+      Tags: 
+        - Key: 'Name'
+          Value: 'defaultPublicSubnet1'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: !Ref customSGVPC
+  routeTablePublicSubnet1:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      Tags: 
+        - Key: 'Name'
+          Value: 'Route table for public subnet 1'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: !Ref customSGVPC
+  publicSubnet1RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref routeTablePublicSubnet1
+      SubnetId: !Ref publicSubnet1
+  publicSubnet1Igw:
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags: 
+        - Key: 'Name'
+          Value: 'IntenetGateway for public subnet 1'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+  publicSubnet1VPCGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      InternetGatewayId: !Ref publicSubnet1Igw
+      VpcId: 'customSGVPC'
+  publicSubnet2: 
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: 'ap-southeast-1b'
+      CidrBlock: '172.31.64.0/20'
+      MapPublicIpOnLaunch: false
+      Tags: 
+        - Key: 'Name'
+          Value: 'defaultPublicSubnet2'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: !Ref customSGVPC
+  routeTablePublicSubnet2:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      Tags: 
+        - Key: 'Name'
+          Value: 'Route table for public subnet 2'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: !Ref customSGVPC
+  publicSubnet2RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref routeTablePublicSubnet2
+      SubnetId: !Ref publicSubnet2
+  publicSubnet2Igw:
+  Type: AWS::EC2::InternetGateway
+  Properties:
+    Tags: 
+      - Key: 'Name'
+        Value: 'IntenetGateway for public subnet 2'
+      - Key: 'Region'
+        Value: 'Singapore'
+      - Key: 'Environment'
+        Value: 'Non Production'
+  publicSubnet2VPCGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      InternetGatewayId: !Ref publicSubnet2Igw
+      VpcId: 'customSGVPC'
+  publicSubnet3: 
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: 'ap-southeast-1c'
+      CidrBlock: '172.31.80.0/20'
+      MapPublicIpOnLaunch: false
+      Tags: 
+        - Key: 'Name'
+          Value: 'defaultPublicSubnet3'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: !Ref customSGVPC
+  routeTablePublicSubnet3:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      Tags: 
+        - Key: 'Name'
+          Value: 'Route table for public subnet 3'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: !Ref customSGVPC
+  publicSubnet3RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref routeTablePublicSubnet3
+      SubnetId: !Ref publicSubnet3
+  publicSubnet3Igw:
+  Type: AWS::EC2::InternetGateway
+  Properties:
+    Tags: 
+      - Key: 'Name'
+        Value: 'IntenetGateway for public subnet 3'
+      - Key: 'Region'
+        Value: 'Singapore'
+      - Key: 'Environment'
+        Value: 'Non Production'
+  publicSubnet3VPCGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      InternetGatewayId: !Ref publicSubnet3Igw
+      VpcId: 'customSGVPC'
+  publicSubnet4: 
+    Type: AWS::EC2::Subnet
+    Properties:
+      AvailabilityZone: 'ap-southeast-1a'
+      CidrBlock: '172.31.96.0/20'
+      MapPublicIpOnLaunch: false
+      Tags: 
+        - Key: 'Name'
+          Value: 'defaultPublicSubnet4'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: !Ref customSGVPC
+  routeTablePublicSubnet4:
+    Type: AWS::EC2::RouteTable
+    Properties:
+      Tags: 
+        - Key: 'Name'
+          Value: 'Route table for public subnet 4'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
+      VpcId: !Ref customSGVPC
+  publicSubnet4RouteTableAssociation:
+    Type: AWS::EC2::SubnetRouteTableAssociation
+    Properties:
+      RouteTableId: !Ref routeTablePublicSubnet4
+      SubnetId: !Ref publicSubnet4
+  publicSubnet4Igw:
+  Type: AWS::EC2::InternetGateway
+  Properties:
+    Tags: 
+      - Key: 'Name'
+        Value: 'IntenetGateway for public subnet 4'
+      - Key: 'Region'
+        Value: 'Singapore'
+      - Key: 'Environment'
+        Value: 'Non Production'
+  publicSubnet4VPCGatewayAttachment:
+    Type: AWS::EC2::VPCGatewayAttachment
+    Properties:
+      InternetGatewayId: !Ref publicSubnet4Igw
+      VpcId: 'customSGVPC'
