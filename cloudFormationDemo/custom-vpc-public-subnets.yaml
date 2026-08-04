@@ -60,7 +60,7 @@ Resources:
     Type: AWS::EC2::VPCGatewayAttachment
     Properties:
       InternetGatewayId: !Ref publicSubnet1Igw
-      VpcId: 'customSGVPC1'
+      VpcId: !Ref customSGVPC1
   publicSubnet2: 
     Type: AWS::EC2::Subnet
     Properties:
@@ -105,7 +105,7 @@ Resources:
     Type: AWS::EC2::VPCGatewayAttachment
     Properties:
       InternetGatewayId: !Ref publicSubnet2Igw
-      VpcId: 'customSGVPC1'
+      VpcId: !Ref customSGVPC1
   publicSubnet3: 
     Type: AWS::EC2::Subnet
     Properties:
@@ -150,7 +150,7 @@ Resources:
     Type: AWS::EC2::VPCGatewayAttachment
     Properties:
       InternetGatewayId: !Ref publicSubnet3Igw
-      VpcId: 'customSGVPC1'
+      VpcId: !Ref customSGVPC1
   publicSubnet4: 
     Type: AWS::EC2::Subnet
     Properties:
@@ -195,4 +195,4 @@ Resources:
     Type: AWS::EC2::VPCGatewayAttachment
     Properties:
       InternetGatewayId: !Ref publicSubnet4Igw
-      VpcId: 'customSGVPC1'
+      VpcId: !Ref customSGVPC1
