@@ -92,15 +92,15 @@ Resources:
       RouteTableId: !Ref routeTablePublicSubnet2
       SubnetId: !Ref publicSubnet2
   publicSubnet2Igw:
-  Type: AWS::EC2::InternetGateway
-  Properties:
-    Tags: 
-      - Key: 'Name'
-        Value: 'IntenetGateway for public subnet 2'
-      - Key: 'Region'
-        Value: 'Singapore'
-      - Key: 'Environment'
-        Value: 'Non Production'
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags: 
+        - Key: 'Name'
+          Value: 'IntenetGateway for public subnet 2'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
   publicSubnet2VPCGatewayAttachment:
     Type: AWS::EC2::VPCGatewayAttachment
     Properties:
@@ -137,15 +137,15 @@ Resources:
       RouteTableId: !Ref routeTablePublicSubnet3
       SubnetId: !Ref publicSubnet3
   publicSubnet3Igw:
-  Type: AWS::EC2::InternetGateway
-  Properties:
-    Tags: 
-      - Key: 'Name'
-        Value: 'IntenetGateway for public subnet 3'
-      - Key: 'Region'
-        Value: 'Singapore'
-      - Key: 'Environment'
-        Value: 'Non Production'
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags: 
+        - Key: 'Name'
+          Value: 'IntenetGateway for public subnet 3'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
   publicSubnet3VPCGatewayAttachment:
     Type: AWS::EC2::VPCGatewayAttachment
     Properties:
@@ -182,15 +182,15 @@ Resources:
       RouteTableId: !Ref routeTablePublicSubnet4
       SubnetId: !Ref publicSubnet4
   publicSubnet4Igw:
-  Type: AWS::EC2::InternetGateway
-  Properties:
-    Tags: 
-      - Key: 'Name'
-        Value: 'IntenetGateway for public subnet 4'
-      - Key: 'Region'
-        Value: 'Singapore'
-      - Key: 'Environment'
-        Value: 'Non Production'
+    Type: AWS::EC2::InternetGateway
+    Properties:
+      Tags: 
+        - Key: 'Name'
+          Value: 'IntenetGateway for public subnet 4'
+        - Key: 'Region'
+          Value: 'Singapore'
+        - Key: 'Environment'
+          Value: 'Non Production'
   publicSubnet4VPCGatewayAttachment:
     Type: AWS::EC2::VPCGatewayAttachment
     Properties:
