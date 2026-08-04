@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: 'Public Subnets in ap-southeast-1 custom VPC'
 
 Resources:
-  customSGVPC:
+  customSGVPC11:
     Type: AWS::EC2::VPC
     Properties:
       CidrBlock: '172.31.0.0/16'
@@ -29,7 +29,7 @@ Resources:
           Value: 'Singapore'
         - Key: 'Environment'
           Value: 'Non Production'
-      VpcId: !Ref customSGVPC
+      VpcId: !Ref customSGVPC1
   routeTablePublicSubnet1:
     Type: AWS::EC2::RouteTable
     Properties:
@@ -40,7 +40,7 @@ Resources:
           Value: 'Singapore'
         - Key: 'Environment'
           Value: 'Non Production'
-      VpcId: !Ref customSGVPC
+      VpcId: !Ref customSGVPC1
   publicSubnet1RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
@@ -60,7 +60,7 @@ Resources:
     Type: AWS::EC2::VPCGatewayAttachment
     Properties:
       InternetGatewayId: !Ref publicSubnet1Igw
-      VpcId: 'customSGVPC'
+      VpcId: 'customSGVPC1'
   publicSubnet2: 
     Type: AWS::EC2::Subnet
     Properties:
@@ -74,7 +74,7 @@ Resources:
           Value: 'Singapore'
         - Key: 'Environment'
           Value: 'Non Production'
-      VpcId: !Ref customSGVPC
+      VpcId: !Ref customSGVPC1
   routeTablePublicSubnet2:
     Type: AWS::EC2::RouteTable
     Properties:
@@ -85,7 +85,7 @@ Resources:
           Value: 'Singapore'
         - Key: 'Environment'
           Value: 'Non Production'
-      VpcId: !Ref customSGVPC
+      VpcId: !Ref customSGVPC1
   publicSubnet2RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
@@ -105,7 +105,7 @@ Resources:
     Type: AWS::EC2::VPCGatewayAttachment
     Properties:
       InternetGatewayId: !Ref publicSubnet2Igw
-      VpcId: 'customSGVPC'
+      VpcId: 'customSGVPC1'
   publicSubnet3: 
     Type: AWS::EC2::Subnet
     Properties:
@@ -119,7 +119,7 @@ Resources:
           Value: 'Singapore'
         - Key: 'Environment'
           Value: 'Non Production'
-      VpcId: !Ref customSGVPC
+      VpcId: !Ref customSGVPC1
   routeTablePublicSubnet3:
     Type: AWS::EC2::RouteTable
     Properties:
@@ -130,7 +130,7 @@ Resources:
           Value: 'Singapore'
         - Key: 'Environment'
           Value: 'Non Production'
-      VpcId: !Ref customSGVPC
+      VpcId: !Ref customSGVPC1
   publicSubnet3RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
@@ -150,7 +150,7 @@ Resources:
     Type: AWS::EC2::VPCGatewayAttachment
     Properties:
       InternetGatewayId: !Ref publicSubnet3Igw
-      VpcId: 'customSGVPC'
+      VpcId: 'customSGVPC1'
   publicSubnet4: 
     Type: AWS::EC2::Subnet
     Properties:
@@ -164,7 +164,7 @@ Resources:
           Value: 'Singapore'
         - Key: 'Environment'
           Value: 'Non Production'
-      VpcId: !Ref customSGVPC
+      VpcId: !Ref customSGVPC1
   routeTablePublicSubnet4:
     Type: AWS::EC2::RouteTable
     Properties:
@@ -175,7 +175,7 @@ Resources:
           Value: 'Singapore'
         - Key: 'Environment'
           Value: 'Non Production'
-      VpcId: !Ref customSGVPC
+      VpcId: !Ref customSGVPC1
   publicSubnet4RouteTableAssociation:
     Type: AWS::EC2::SubnetRouteTableAssociation
     Properties:
@@ -195,4 +195,4 @@ Resources:
     Type: AWS::EC2::VPCGatewayAttachment
     Properties:
       InternetGatewayId: !Ref publicSubnet4Igw
-      VpcId: 'customSGVPC'
+      VpcId: 'customSGVPC1'
