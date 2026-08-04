@@ -2,7 +2,7 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description: 'Public Subnets in ap-southeast-1 custom VPC'
 
 Resources:
-  customSGVPC11:
+  customSGVPC1:
     Type: AWS::EC2::VPC
     Properties:
       CidrBlock: '172.31.0.0/16'
