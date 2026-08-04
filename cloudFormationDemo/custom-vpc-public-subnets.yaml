@@ -61,11 +61,14 @@ Resources:
     Properties:
       InternetGatewayId: !Ref publicSubnetIgw
       VpcId: !Ref customSGVPC1
-  publicSubnet1GatewayRouteTableAssociation:
-    Type: AWS::EC2::GatewayRouteTableAssociation
+  # Adds the Internet Gateway route to the route table
+  publicSubnet1DefaultRoute:
+    Type: AWS::EC2::Route
+    DependsOn: publicSubnetIgw # Ensures Gateway is attached to VPC first
     Properties:
-      GatewayId: !Ref publicSubnetIgw
       RouteTableId: !Ref routeTablePublicSubnet1
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref publicSubnetIgw
   publicSubnet2: 
     Type: AWS::EC2::Subnet
     Properties:
@@ -96,11 +99,14 @@ Resources:
     Properties:
       RouteTableId: !Ref routeTablePublicSubnet2
       SubnetId: !Ref publicSubnet2
-  publicSubnet2GatewayRouteTableAssociation:
-    Type: AWS::EC2::GatewayRouteTableAssociation
+  # Adds the Internet Gateway route to the route table
+  publicSubnet2DefaultRoute:
+    Type: AWS::EC2::Route
+    DependsOn: publicSubnetIgw # Ensures Gateway is attached to VPC first
     Properties:
-      GatewayId: !Ref publicSubnetIgw
       RouteTableId: !Ref routeTablePublicSubnet2
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref publicSubnetIgw
   publicSubnet3: 
     Type: AWS::EC2::Subnet
     Properties:
@@ -131,11 +137,14 @@ Resources:
     Properties:
       RouteTableId: !Ref routeTablePublicSubnet3
       SubnetId: !Ref publicSubnet3
-  publicSubnet3GatewayRouteTableAssociation:
-    Type: AWS::EC2::GatewayRouteTableAssociation
+  # Adds the Internet Gateway route to the route table
+  publicSubnet3DefaultRoute:
+    Type: AWS::EC2::Route
+    DependsOn: publicSubnetIgw # Ensures Gateway is attached to VPC first
     Properties:
-      GatewayId: !Ref publicSubnetIgw
       RouteTableId: !Ref routeTablePublicSubnet3
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref publicSubnetIgw
   publicSubnet4: 
     Type: AWS::EC2::Subnet
     Properties:
@@ -166,8 +175,11 @@ Resources:
     Properties:
       RouteTableId: !Ref routeTablePublicSubnet4
       SubnetId: !Ref publicSubnet4
-  publicSubnet4GatewayRouteTableAssociation:
-    Type: AWS::EC2::GatewayRouteTableAssociation
+  # Adds the Internet Gateway route to the route table
+  publicSubnet4DefaultRoute:
+    Type: AWS::EC2::Route
+    DependsOn: publicSubnetIgw # Ensures Gateway is attached to VPC first
     Properties:
-      GatewayId: !Ref publicSubnetIgw
       RouteTableId: !Ref routeTablePublicSubnet4
+      DestinationCidrBlock: 0.0.0.0/0
+      GatewayId: !Ref publicSubnetIgw
