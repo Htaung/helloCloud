@@ -1,0 +1,36 @@
+AWSTemplateFormatVersion: "2010-09-09"
+
+Resources:
+  publicIntance1: 
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: 't3.micro'
+      AvailabilityZone: 'ap-southeast-1a'
+      ImageId: 'ami-097284c1ee60065d1'
+      KeyName: 'gridworks-nonprod-sg'
+      SubnetId: 'subnet-00db0f0671d8ec244'
+      Tags:
+        - Key: 'Name'
+          Value: 'publicIntance1'
+  publicIntance2: 
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: 't3.micro'
+      AvailabilityZone: 'ap-southeast-1b'
+      ImageId: 'ami-097284c1ee60065d1'
+      KeyName: 'gridworks-nonprod-sg'
+      SubnetId: 'subnet-0ebd67e612cef6ef0'
+      Tags:
+        - Key: 'Name'
+          Value: 'publicIntance2'
+  publicIntancec3: 
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: 't3.micro'
+      AvailabilityZone: 'ap-southeast-1c'
+      ImageId: 'ami-097284c1ee60065d1'
+      KeyName: 'gridworks-nonprod-sg'
+      SubnetId: 'subnet-0d2cb60e96abe216f'
+      Tags:
+        - Key: 'Name'
+          Value: 'publicIntance3'
