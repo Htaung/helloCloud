@@ -1,4 +1,4 @@
-resource "aws_key_pair" "master-key-pair" {
-  key_name   = "master-singapore-key"
+resource "aws_key_pair" "master_ed25519_key" {
+  key_name   = "master_ed25519_key"
   public_key = var.public_key
 }
