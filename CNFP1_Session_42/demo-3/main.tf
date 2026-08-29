@@ -1,0 +1,49 @@
+locals {
+  deployment_id = lower("${var.deployment_name}-${random_string.suffix.id}")
+}
+
+resource "random_string" "suffix" {
+     length           = 8
+     special          = false
+}
+
+resource "tls_private_key" "ssh" {
+    algorithm = "RSA"
+    rsa_bits  = 4096 
+}
+
+resource "aws_key_pair" "this" {
+  count = var.create_ec2_ssh_keypair? 1: 0
+
+  key_name   = "${local.deployment_id}-key"
+  public_key = "${tls_private_key.ssh.public_key_openssh}"
+
+  tags = merge(
+    { 
+      Name = "${local.deployment_id}-keypair"
+    },
+    var.common-tags
+  )
+}
+
+resource "local_file" "private_key" {
+  content  = "${tls_private_key.ssh.private_key_openssh}"
+  filename = "${path.root}/generated/${local.deployment_id}-key.pem"
+
+   provisioner "local-exec" {
+    command = "chmod 400 ${path.root}/generated/${local.deployment_id}-key.pem"
+  }
+}
+
+resource "null_resource" "delete_key" {
+  # Triggers regeneration if the filename changes
+  triggers = {
+    filename = local_file.private_key.filename
+  }
+
+  # Executes code only during 'terraform destroy'
+  provisioner "local-exec" {
+    when    = destroy
+    command = "rm -f ${self.triggers.filename}"
+  }
+}
